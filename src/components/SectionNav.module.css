@@ -1,0 +1,60 @@
+.rail {
+  position: fixed;
+  right: clamp(16px, 3vw, 32px);
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 20;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: center;
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+.rail button {
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.arrow {
+  width: 22px;
+  height: 22px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--text-50);
+  cursor: pointer;
+  font-size: 14px;
+  line-height: 1;
+}
+
+.arrow:hover {
+  color: var(--accent);
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  padding: 0;
+  border-radius: 50%;
+  border: 1px solid var(--dot-border);
+  background: transparent;
+  cursor: pointer;
+  transition: all 200ms ease;
+}
+
+.dotActive {
+  width: 14px;
+  height: 14px;
+  border-color: var(--accent);
+  background: var(--accent);
+  outline: 2px solid var(--accent-outline);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dot {
+    transition: none;
+  }
+}

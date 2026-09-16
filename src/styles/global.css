@@ -1,0 +1,165 @@
+@import './tokens.css';
+
+html,
+body {
+  margin: 0;
+  background: var(--bg);
+}
+
+body {
+  color: var(--text);
+  text-wrap: pretty;
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--accent-hover);
+}
+
+::selection {
+  background: var(--accent-tint-20);
+}
+
+input:focus-visible,
+button:focus-visible,
+a:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+/* ---------------------------------------------------------------------------
+   Slide shell.
+
+   The scroll container and the per-section frame are global: the responsive
+   rules below address individual sections through `data-screen-label`, and
+   every section shares this same box. Sections vary only by two custom
+   properties, `--slide-gap` and `--slide-pad-bottom`, which each section's
+   own module sets — that keeps padding in one place instead of having seven
+   modules override a shorthand.
+   --------------------------------------------------------------------------- */
+
+.slides {
+  position: relative;
+  z-index: 1;
+  height: 100svh;
+  overflow-y: auto;
+  scroll-snap-type: y mandatory;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+  touch-action: pan-y;
+}
+
+.slides::-webkit-scrollbar {
+  display: none;
+}
+
+.slide {
+  --slide-gap: clamp(24px, 4vh, 48px);
+  --slide-pad-bottom: clamp(24px, 5vh, 60px);
+  --slide-pad-right: var(--page-inline);
+
+  position: relative;
+  height: 100svh;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: safe center;
+  gap: var(--slide-gap);
+  overflow: hidden;
+  padding: var(--slide-top-offset) var(--slide-pad-right)
+    var(--slide-pad-bottom) var(--page-inline);
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+}
+
+/* Sections that carry an "01 — …" kicker pin it to the top-left of the slide
+   and reserve extra headroom for it. */
+.slide:not([data-screen-label='Hero']) {
+  padding-top: var(--slide-top-offset-kicker);
+}
+
+.slide:not([data-screen-label='Hero']) > .kicker:first-child {
+  position: absolute;
+  top: calc(var(--header-height) + 18px + env(safe-area-inset-top, 0px));
+  left: var(--page-inline);
+  margin: 0;
+}
+
+/* The "01 — The premise" label. Global because the slide frame positions it. */
+.kicker {
+  font-family: var(--font-mono);
+  font-size: 15px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--text-58);
+}
+
+/* ---------------------------------------------------------------------------
+   Tablet and below — slides stop being fixed-height screens and simply flow.
+   --------------------------------------------------------------------------- */
+
+@media (max-width: 1000px) {
+  .slide {
+    height: auto;
+    min-height: 100svh;
+    overflow: visible;
+    justify-content: center;
+  }
+
+  /* Boxes that fill leftover height on desktop release their height cap. */
+  .fit-box {
+    flex: none;
+    max-height: none;
+    overflow: visible;
+  }
+
+  .fit-row {
+    flex: none;
+  }
+
+  /* …except these two, which stay locked to one screen and compress their
+     contents instead of growing. */
+  .slide[data-screen-label='Economics'],
+  .slide[data-screen-label='Consequences'] {
+    height: 100svh;
+    min-height: 0;
+    overflow: hidden;
+  }
+
+  .slide[data-screen-label='Economics'] .fit-box {
+    flex: 1 1 auto;
+    min-height: 0;
+    max-height: none;
+    overflow: hidden;
+  }
+
+  .slide[data-screen-label='Consequences'] {
+    --slide-gap: clamp(8px, 1.4vh, 16px);
+  }
+}
+
+/* ---------------------------------------------------------------------------
+   Phone — reserve the nav-rail gutter so copy never runs under the dots.
+   --------------------------------------------------------------------------- */
+
+@media (max-width: 720px) {
+  .slide {
+    --slide-pad-right: var(--rail-gutter);
+  }
+
+  .slide[data-screen-label='Hero'] {
+    --slide-pad-bottom: calc(clamp(56px, 12vh, 110px) - 36px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .slides {
+    scroll-behavior: auto;
+  }
+}

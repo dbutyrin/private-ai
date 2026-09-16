@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<link rel="stylesheet" href="_ds/nocturne-21db1486-65e8-424f-81f2-73effcfce7e2/styles.css" />
+<script src="_ds/nocturne-21db1486-65e8-424f-81f2-73effcfce7e2/_ds_bundle.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Inter+Tight:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+html, body { margin: 0; background: #060708; }
+body { color: #eceeed; text-wrap: pretty; font-family: "Inter Tight", system-ui, sans-serif; -webkit-font-smoothing: antialiased; }
+a { color: #3ee0b0; text-decoration: none; }
+a:hover { color: #6fecc9; }
+::selection { background: rgba(62,224,176,0.2); }
+input:focus-visible, button:focus-visible { outline: 2px solid #3ee0b0; outline-offset: 3px; }
+.slides { height: 100svh; overflow-y: auto; scroll-snap-type: y mandatory; scrollbar-width: none; -webkit-overflow-scrolling: touch; touch-action: pan-y; }
+nav[aria-label="Sections"] button { touch-action: manipulation; -webkit-tap-highlight-color: transparent; }
+nav[aria-label="Sections"] { padding-top: env(safe-area-inset-top, 0px); padding-bottom: env(safe-area-inset-bottom, 0px); }
+@media (max-width: 720px) { .slide { padding-right: clamp(56px, 14vw, 76px) !important; }
+  .slide[data-screen-label="Hero"] { padding-bottom: calc(clamp(56px, 12vh, 110px) - 36px) !important; }
+  .site-header { justify-content: center !important; }
+  .slide[data-screen-label="Hero"] h1 { font-size: clamp(38px, 8.6vw, 62px) !important; }
+  .slide[data-screen-label="Hero"] > div > div:last-child { justify-content: center !important; margin-top: 36px; margin-right: calc(clamp(24px, 5vw, 72px) - clamp(56px, 14vw, 76px)); }
+}
+.slides::-webkit-scrollbar { display: none; }
+.slide { position: relative; height: 100svh; box-sizing: border-box; justify-content: safe center; padding-top: calc(clamp(14px, 2.2vh, 22px) * 2 + 24px + 16px + env(safe-area-inset-top, 0px)) !important; scroll-snap-align: start; scroll-snap-stop: always; display: flex; flex-direction: column; overflow: hidden; }
+.slide:not([data-screen-label="Hero"]) { padding-top: calc(clamp(14px, 2.2vh, 22px) * 2 + 24px + 16px + 40px + env(safe-area-inset-top, 0px)) !important; }
+.slide:not([data-screen-label="Hero"]) > span:first-child { position: absolute; top: calc(clamp(14px, 2.2vh, 22px) * 2 + 24px + 18px + env(safe-area-inset-top, 0px)); left: clamp(24px, 5vw, 72px); margin: 0; }
+@media (max-width: 1000px) {
+  .slide { height: auto; min-height: 100svh; overflow: visible; justify-content: center; }
+  .fit-box { flex: none !important; max-height: none !important; overflow: visible !important; }
+  .fit-row { flex: none !important; }
+  .econ-grid { grid-template-columns: 1fr !important; grid-auto-rows: auto !important; height: auto !important; }
+  .econ-grid > div { min-height: 0 !important; height: auto !important; }
+  .econ-grid > div > div:first-child { padding: clamp(20px, 5vh, 28px) !important; }
+  .econ-grid > div > div:first-child p { font-size: clamp(34px, 11vw, 48px) !important; }
+  .econ-grid > div > div:last-child { padding: clamp(16px, 3vh, 22px) !important; }
+  .conseq-grid { grid-template-columns: 1fr !important; }
+  .conseq-item { border-left: 0 !important; border-top: 1px solid rgba(236,238,237,0.12); padding: clamp(14px, 2vh, 22px) 0 !important; }
+  .conseq-item:first-child { border-top: 0; }
+}
+@media (prefers-reduced-motion: reduce) { .slides { scroll-behavior: auto; } }
+@media (max-width: 1000px) {
+  .slide[data-screen-label="Economics"] { height: 100svh !important; min-height: 0 !important; overflow: hidden !important; }
+  .slide[data-screen-label="Economics"] .fit-box { flex: 1 1 auto !important; min-height: 0 !important; max-height: none !important; overflow: hidden !important; }
+  .slide[data-screen-label="Economics"] .econ-grid { grid-template-columns: 1fr !important; grid-auto-rows: minmax(0, 1fr) !important; height: 100% !important; }
+  .slide[data-screen-label="Economics"] .econ-grid > div > div:first-child { flex: 0 0 44% !important; }
+  .slide[data-screen-label="Economics"] .econ-grid > div > div:first-child p { font-size: clamp(26px, 6.6vw, 40px) !important; }
+  .slide[data-screen-label="Economics"] .econ-grid > div > div:last-child p:first-child { font-size: 12px !important; letter-spacing: 0.1em !important; }
+  .slide[data-screen-label="Economics"] .econ-grid > div > div:last-child p:last-child { font-size: 14px !important; line-height: 1.35 !important; }
+  .slide[data-screen-label="Economics"] .econ-grid > div > div { padding: clamp(8px, 1.4vh, 14px) !important; }
+  .slide[data-screen-label="Consequences"] { height: 100svh !important; min-height: 0 !important; overflow: hidden !important; gap: clamp(8px, 1.4vh, 16px) !important; }
+  .slide[data-screen-label="Consequences"] h2 { font-size: clamp(20px, 3.3vw, 30px) !important; }
+  .slide[data-screen-label="Consequences"] .conseq-item { padding: clamp(5px, 0.8vh, 10px) 0 !important; }
+  .slide[data-screen-label="Consequences"] .conseq-item p { font-size: 15px !important; line-height: 1.28 !important; margin-top: 5px !important; }
+  .slide[data-screen-label="Consequences"] > p:nth-last-of-type(2) { font-size: 16px !important; line-height: 1.4 !important; }
+  .slide[data-screen-label="Consequences"] > p:last-of-type { font-size: clamp(16px, 2.6vw, 24px) !important; line-height: 1.16 !important; }
+}
+</style>
+</helmet>
+
+<div ref="{{ rootRef }}" style="position: relative; background: #060708;">
+
+  <div aria-hidden="true" style="position: fixed; inset: 0; z-index: 0; pointer-events: none; background-image: linear-gradient(to right, rgba(236,238,237,0.05) 1px, transparent 1px); background-size: 25% 100%; -webkit-mask-image: linear-gradient(to bottom, transparent, #000 18%, #000 72%, transparent); mask-image: linear-gradient(to bottom, transparent, #000 18%, #000 72%, transparent);"></div>
+
+  <div class="site-header" style="position: fixed; top: 0; left: 0; right: 0; z-index: 18; display: flex; justify-content: space-between; align-items: center; gap: 20px; padding: clamp(14px, 2.2vh, 22px) clamp(24px, 5vw, 72px); background: rgba(6,7,8,0.82); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(236,238,237,0.12);">
+    <span style="font-family: 'IBM Plex Mono', monospace; font-size: 15px; letter-spacing: 0.18em; text-transform: uppercase; color: #eceeed;">Private&nbsp;AI&nbsp;/&nbsp;On-Premise</span>
+  </div>
+
+  <nav aria-label="Sections" style="position: fixed; right: clamp(16px, 3vw, 32px); top: 50%; transform: translateY(-50%); z-index: 20; display: flex; flex-direction: column; gap: 16px; align-items: center;">
+    <button type="button" aria-label="Previous section" onClick="{{ goPrev }}" style="width: 22px; height: 22px; padding: 0; border: 0; background: transparent; color: rgba(236,238,237,0.5); cursor: pointer; font-size: 14px; line-height: 1;" style-hover="color: #3ee0b0;">⇑</button>
+    <sc-for list="{{ dots }}" as="d" hint-placeholder-count="7">
+      <button type="button" aria-label="{{ d.label }}" onClick="{{ d.go }}" style="{{ d.style }}"></button>
+    </sc-for>
+    <button type="button" aria-label="Next section" onClick="{{ goNext }}" style="width: 22px; height: 22px; padding: 0; border: 0; background: transparent; color: rgba(236,238,237,0.5); cursor: pointer; font-size: 14px; line-height: 1;" style-hover="color: #3ee0b0;">⇓</button>
+  </nav>
+
+  <div class="slides" ref="{{ slidesRef }}" style="position: relative; z-index: 1;">
+
+    <section ref="{{ ref0 }}" class="slide" data-screen-label="Hero" style="padding: max(clamp(20px, 3vh, 32px), env(safe-area-inset-top, 0px)) clamp(24px, 5vw, 72px) clamp(28px, 4vh, 44px); gap: clamp(16px, 3vh, 30px);">
+      <h1 style="font-size: clamp(34px, 7.4vw, 84px); line-height: 1; letter-spacing: -0.04em; font-weight: 500; margin: 0; max-width: 20ch; flex: 1; display: flex; align-items: center;"><span>Private AI used to be a large-enterprise privilege.<br />&nbsp;<span style="color: #3ee0b0;">It isn't anymore.</span></span></h1>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: clamp(18px, 3vw, 48px); align-items: end; padding-top: clamp(14px, 2vh, 20px); border-top: 1px solid rgba(236,238,237,0.12);">
+        <p style="margin: 0; font-size: clamp(17px, 1.5vw, 19px); line-height: 1.55; color: rgba(236,238,237,0.66); max-width: 58ch;">Contracts. Client personal data. Internal financial numbers. All of it goes into a chatbot every day — simply because that's faster. And while data security is still an agenda item in your next meeting, it has already been sitting on somebody else's servers for a while. Piece by piece.</p>
+        <div style="display: flex; justify-content: flex-end;">
+          <a href="#" onClick="{{ dots0go }}" style="display: inline-flex; align-items: center; gap: 14px; height: 46px; padding: 0 22px; border: 1px solid #3ee0b0; border-radius: 8px; color: #3ee0b0; font-family: 'IBM Plex Mono', monospace; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase;" style-hover="background: rgba(62,224,176,0.1);">How much does the solution cost?<span style="font-size: 15px;">↓</span></a>
+        </div>
+      </div>
+    </section>
+
+    <section ref="{{ ref1 }}" class="slide" data-screen-label="Qualifier" style="padding: clamp(24px, 5vh, 60px) clamp(24px, 5vw, 72px); gap: clamp(24px, 4vh, 48px);">
+      <span style="font-family: 'IBM Plex Mono', monospace; font-size: 15px; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(236,238,237,0.58);">01 — The premise</span>
+      <h2 style="font-size: clamp(26px, 4.6vw, 46px); line-height: 1.16; letter-spacing: -0.03em; font-weight: 500; margin: 0; max-width: 24ch;">Your team already pasted company data into public ChatGPT today. The question isn't whether it happened. The question is what exactly went in.</h2>
+      <p style="margin: 0 0 0 auto; max-width: 46ch; font-family: 'IBM Plex Mono', monospace; font-size: 17px; line-height: 1.65; color: rgba(236,238,237,0.65); border-top: 1px solid rgba(62,224,176,0.4); padding-top: 16px;">If the honest answer is “nothing sensitive, nothing regulated” — this page isn't for you.</p>
+    </section>
+
+    <section ref="{{ ref2 }}" class="slide" data-screen-label="Consequences" style="padding: clamp(18px, 3.2vh, 38px) clamp(24px, 5vw, 72px); gap: clamp(10px, 1.8vh, 22px); background: linear-gradient(to bottom, rgba(62,224,176,0.035), transparent 45%);">
+      <span style="font-family: 'IBM Plex Mono', monospace; font-size: 15px; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(236,238,237,0.58);">02 — The bill</span>
+      <h2 style="font-size: clamp(23px, 4vw, 38px); line-height: 1.16; letter-spacing: -0.03em; font-weight: 500; margin: 0; max-width: 20ch;">You won't hear about the leak on the day it happens.</h2>
+      <div class="conseq-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; border-top: 1px solid rgba(236,238,237,0.12);">
+        <div class="conseq-item" style="padding: clamp(11px, 1.6vh, 20px) clamp(18px, 2vw, 30px) clamp(11px, 1.6vh, 20px) 0;">
+          <span style="font-family: 'IBM Plex Mono', monospace; font-size: 14px; color: #3ee0b0;">01</span>
+          <p style="margin: 10px 0 0; font-size: clamp(16px, 2vw, 18px); line-height: 1.35; letter-spacing: -0.01em; color: rgba(236,238,237,0.84);">A letter from a regulator.</p>
+        </div>
+        <div class="conseq-item" style="padding: clamp(11px, 1.6vh, 20px) clamp(18px, 2vw, 30px); border-left: 1px solid rgba(236,238,237,0.12);">
+          <span style="font-family: 'IBM Plex Mono', monospace; font-size: 14px; color: #3ee0b0;">02</span>
+          <p style="margin: 10px 0 0; font-size: clamp(16px, 2vw, 18px); line-height: 1.35; letter-spacing: -0.01em; color: rgba(236,238,237,0.84);">A question from a client who found their contract somewhere it shouldn't be.</p>
+        </div>
+        <div class="conseq-item" style="padding: clamp(11px, 1.6vh, 20px) 0 clamp(11px, 1.6vh, 20px) clamp(18px, 2vw, 30px); border-left: 1px solid rgba(236,238,237,0.12);">
+          <span style="font-family: 'IBM Plex Mono', monospace; font-size: 14px; color: #3ee0b0;">03</span>
+          <p style="margin: 10px 0 0; font-size: clamp(16px, 2vw, 18px); line-height: 1.35; letter-spacing: -0.01em; color: rgba(236,238,237,0.84);">A claim, with a number attached to it.</p>
+        </div>
+      </div>
+      <p style="margin: 0; font-size: clamp(17px, 1.6vw, 19px); line-height: 1.55; color: rgba(236,238,237,0.62); max-width: 44ch;">And what you pay for won't be the data. It will be the consequences.</p>
+      <p style="margin: 0; font-size: clamp(19px, 3.2vw, 31px); line-height: 1.14; letter-spacing: -0.035em; color: #3ee0b0; max-width: 22ch;">So the question isn't how to ban AI for your employees. It's how to give them AI that doesn't carry your data out the door.</p>
+    </section>
+
+    <section ref="{{ ref3 }}" class="slide" data-screen-label="Mechanism" style="padding: clamp(24px, 5vh, 60px) clamp(24px, 5vw, 72px); gap: clamp(22px, 4vh, 44px);">
+      <span style="font-family: 'IBM Plex Mono', monospace; font-size: 15px; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(236,238,237,0.58);">03 — The work</span>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: clamp(20px, 3vw, 1px);">
+        <div style="padding: clamp(16px, 2vh, 28px) clamp(20px, 2.4vw, 36px) clamp(16px, 2vh, 28px) 0;">
+          <h3 style="margin: 0; font-family: 'IBM Plex Mono', monospace; font-size: 15px; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(236,238,237,0.5);">Sounds like</h3>
+          <p style="margin: 16px 0 0; font-size: clamp(20px, 3vw, 27px); line-height: 1.32; letter-spacing: -0.018em; color: rgba(236,238,237,0.5); max-width: 24ch;">Months of work. Servers to buy. An IT department you don't have. A painful integration that stalls somewhere in the second quarter.</p>
+        </div>
+        <div style="padding: clamp(16px, 2vh, 28px) 0 clamp(16px, 2vh, 28px) clamp(20px, 2.4vw, 36px); border-left: 1px solid rgba(62,224,176,0.45);">
+          <h3 style="margin: 0; font-family: 'IBM Plex Mono', monospace; font-size: 15px; letter-spacing: 0.16em; text-transform: uppercase; color: #3ee0b0;">Actually is</h3>
+          <p style="margin: 16px 0 0; font-size: clamp(20px, 3vw, 27px); line-height: 1.32; letter-spacing: -0.018em; color: #eceeed; max-width: 24ch;">You plug the box into power and into your network. Model selection, configuration and document connection we handle remotely.</p>
+        </div>
+      </div>
+    </section>
+
+    <section ref="{{ ref4 }}" class="slide" data-screen-label="Economics" style="padding: clamp(24px, 5vh, 60px) clamp(24px, 5vw, 72px); gap: clamp(18px, 3vh, 34px);">
+      <span style="font-family: 'IBM Plex Mono', monospace; font-size: 15px; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(236,238,237,0.58);">04 — The economics</span>
+      <div class="fit-box" style="border: 1px solid rgba(236,238,237,0.14); border-radius: 10px; overflow: hidden; flex: 1; max-height: 460px;">
+        <div class="econ-grid" style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); grid-auto-rows: 1fr; height: 100%; margin: -1px 0 0 -1px;">
+          <div style="border-left: 1px solid rgba(236,238,237,0.14); border-top: 1px solid rgba(236,238,237,0.14); display: flex; flex-direction: column; height: 100%;">
+            <div style="flex: 2; display: flex; align-items: center; justify-content: center; padding: clamp(14px, 2vh, 22px);">
+              <p style="margin: 0; font-size: clamp(40px, 7vw, 64px); line-height: 0.92; letter-spacing: -0.045em; font-weight: 500; font-variant-numeric: tabular-nums; text-align: center;">$0</p>
+            </div>
+            <div style="flex: 1; border-top: 1px solid rgba(236,238,237,0.14); padding: clamp(16px, 2.2vh, 26px); display: grid; align-content: start; justify-items: center; text-align: center; gap: 8px;">
+              <p style="margin: 0; font-family: 'IBM Plex Mono', monospace; font-size: 15px; letter-spacing: 0.14em; text-transform: uppercase; color: #3ee0b0;">Per month in tokens</p>
+              <p style="margin: 0; font-size: 17px; line-height: 1.4; color: rgba(236,238,237,0.58);">The model runs on your hardware. No meter running.</p>
+            </div>
+          </div>
+          <div style="border-left: 1px solid rgba(236,238,237,0.14); border-top: 1px solid rgba(236,238,237,0.14); display: flex; flex-direction: column; height: 100%;">
+            <div style="flex: 2; display: flex; align-items: center; justify-content: center; padding: clamp(14px, 2vh, 22px);">
+              <p style="margin: 0; font-size: clamp(30px, 5.2vw, 48px); line-height: 0.92; letter-spacing: -0.045em; font-weight: 500; font-variant-numeric: tabular-nums; text-align: center;">One&nbsp;time setup</p>
+            </div>
+            <div style="flex: 1; border-top: 1px solid rgba(236,238,237,0.14); padding: clamp(16px, 2.2vh, 26px); display: grid; align-content: start; justify-items: center; text-align: center; gap: 8px;">
+              <p style="margin: 0; font-family: 'IBM Plex Mono', monospace; font-size: 15px; letter-spacing: 0.14em; text-transform: uppercase; color: #3ee0b0;">Not a subscription</p>
+              <p style="margin: 0; font-size: 17px; line-height: 1.4; color: rgba(236,238,237,0.58);">A low entry price, sized to your team.</p>
+            </div>
+          </div>
+          <div style="border-left: 1px solid rgba(236,238,237,0.14); border-top: 1px solid rgba(236,238,237,0.14); display: flex; flex-direction: column; height: 100%;">
+            <div style="flex: 2; display: flex; align-items: center; justify-content: center; padding: clamp(14px, 2vh, 22px);">
+              <p style="margin: 0; font-size: clamp(40px, 7vw, 64px); line-height: 0.92; letter-spacing: -0.045em; font-weight: 500; font-variant-numeric: tabular-nums; text-align: center;">256K</p>
+            </div>
+            <div style="flex: 1; border-top: 1px solid rgba(236,238,237,0.14); padding: clamp(16px, 2.2vh, 26px); display: grid; align-content: start; justify-items: center; text-align: center; gap: 8px;">
+              <p style="margin: 0; font-family: 'IBM Plex Mono', monospace; font-size: 15px; letter-spacing: 0.14em; text-transform: uppercase; color: #3ee0b0;">Tokens of context</p>
+              <p style="margin: 0; font-size: 17px; line-height: 1.4; color: rgba(236,238,237,0.58);">A full contract or report held in one piece.</p>
+            </div>
+          </div>
+          <div style="border-left: 1px solid rgba(236,238,237,0.14); border-top: 1px solid rgba(236,238,237,0.14); display: flex; flex-direction: column; height: 100%;">
+            <div style="flex: 2; display: flex; align-items: center; justify-content: center; padding: clamp(14px, 2vh, 22px);">
+              <p style="margin: 0; font-size: clamp(30px, 5.2vw, 48px); line-height: 0.92; letter-spacing: -0.045em; font-weight: 500; font-variant-numeric: tabular-nums; text-align: center;">Dozens</p>
+            </div>
+            <div style="flex: 1; border-top: 1px solid rgba(236,238,237,0.14); padding: clamp(16px, 2.2vh, 26px); display: grid; align-content: start; justify-items: center; text-align: center; gap: 8px;">
+              <p style="margin: 0; font-family: 'IBM Plex Mono', monospace; font-size: 15px; letter-spacing: 0.14em; text-transform: uppercase; color: #3ee0b0;">Of people at once</p>
+              <p style="margin: 0; font-size: 17px; line-height: 1.4; color: rgba(236,238,237,0.58);">Concurrent use across the company, without slowing down.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section ref="{{ ref5 }}" class="slide" data-screen-label="Delivery" style="padding: clamp(24px, 5vh, 60px) clamp(24px, 5vw, 72px); gap: clamp(16px, 2.6vh, 30px);">
+      <span style="font-family: 'IBM Plex Mono', monospace; font-size: 15px; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(236,238,237,0.58);">05 — Delivery</span>
+      <div class="fit-box" style="display: flex; flex-direction: column; flex: 1; max-height: 460px;">
+        <div class="fit-row" style="display: grid; grid-template-columns: 50px minmax(0, 1fr) minmax(0, 1.1fr); gap: 0 clamp(16px, 2.4vw, 48px); align-items: center; flex: 1; padding: clamp(10px, 1.6vh, 18px) 0; border-top: 1px solid rgba(236,238,237,0.12);">
+          <span style="font-family: 'IBM Plex Mono', monospace; font-size: 14px; color: #3ee0b0;">01</span>
+          <h3 style="margin: 0; font-size: clamp(17px, 2.2vw, 21px); line-height: 1.22; letter-spacing: -0.02em; font-weight: 500;">Connected to your documents from day one</h3>
+          <p style="margin: 0; font-size: 17px; line-height: 1.45; color: rgba(236,238,237,0.58);">It answers on your contracts, your policies and your files — not on the open internet.</p>
+        </div>
+        <div class="fit-row" style="display: grid; grid-template-columns: 50px minmax(0, 1fr) minmax(0, 1.1fr); gap: 0 clamp(16px, 2.4vw, 48px); align-items: center; flex: 1; padding: clamp(10px, 1.6vh, 18px) 0; border-top: 1px solid rgba(236,238,237,0.12);">
+          <span style="font-family: 'IBM Plex Mono', monospace; font-size: 14px; color: #3ee0b0;">02</span>
+          <h3 style="margin: 0; font-size: clamp(17px, 2.2vw, 21px); line-height: 1.22; letter-spacing: -0.02em; font-weight: 500;">We pick and configure the model remotely</h3>
+          <p style="margin: 0; font-size: 17px; line-height: 1.45; color: rgba(236,238,237,0.58);">Against the work your team actually does. Nobody on your side needs to learn how it works.</p>
+        </div>
+        <div class="fit-row" style="display: grid; grid-template-columns: 50px minmax(0, 1fr) minmax(0, 1.1fr); gap: 0 clamp(16px, 2.4vw, 48px); align-items: center; flex: 1; padding: clamp(10px, 1.6vh, 18px) 0; border-top: 1px solid rgba(236,238,237,0.12);">
+          <span style="font-family: 'IBM Plex Mono', monospace; font-size: 14px; color: #3ee0b0;">03</span>
+          <h3 style="margin: 0; font-size: clamp(17px, 2.2vw, 21px); line-height: 1.22; letter-spacing: -0.02em; font-weight: 500;">Three to four days from box to first real answer</h3>
+          <p style="margin: 0; font-size: 17px; line-height: 1.45; color: rgba(236,238,237,0.58);">Measured from the hardware arriving, not from the contract being signed.</p>
+        </div>
+        <div class="fit-row" style="display: grid; grid-template-columns: 50px minmax(0, 1fr) minmax(0, 1.1fr); gap: 0 clamp(16px, 2.4vw, 48px); align-items: center; flex: 1; padding: clamp(10px, 1.6vh, 18px) 0; border-top: 1px solid rgba(236,238,237,0.12); border-bottom: 1px solid rgba(236,238,237,0.12);">
+          <span style="font-family: 'IBM Plex Mono', monospace; font-size: 14px; color: #3ee0b0;">04</span>
+          <h3 style="margin: 0; font-size: clamp(17px, 2.2vw, 21px); line-height: 1.22; letter-spacing: -0.02em; font-weight: 500;">We move you onto better models as they ship</h3>
+          <p style="margin: 0; font-size: 17px; line-height: 1.45; color: rgba(236,238,237,0.58);">The hardware you bought keeps getting more capable.</p>
+        </div>
+      </div>
+    </section>
+
+    <section ref="{{ ref6 }}" id="estimate" class="slide" data-screen-label="Estimate form" style="padding: clamp(24px, 5vh, 60px) clamp(24px, 5vw, 72px); gap: clamp(20px, 4vh, 40px); background: linear-gradient(to bottom, transparent, rgba(62,224,176,0.05));">
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: clamp(28px, 4vw, 64px); align-items: center;">
+        <h2 style="margin: 0; font-size: clamp(26px, 4.8vw, 48px); line-height: 1.1; letter-spacing: -0.035em; font-weight: 500; max-width: 15ch;">Want to know what this would cost you specifically?</h2>
+
+        <form onSubmit="{{ onSubmit }}" style="display: grid; gap: clamp(14px, 2vh, 22px); max-width: 560px;">
+          <fieldset style="border: 0; padding: 0; margin: 0; display: grid; gap: 10px;">
+            <legend style="font-family: 'IBM Plex Mono', monospace; font-size: 15px; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(236,238,237,0.58); padding: 0;">Team size</legend>
+            <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px;">
+              <button type="button" onClick="{{ pickA }}" style="{{ styleA }}">Up to 5</button>
+              <button type="button" onClick="{{ pickB }}" style="{{ styleB }}">5–10</button>
+              <button type="button" onClick="{{ pickC }}" style="{{ styleC }}">10+</button>
+            </div>
+          </fieldset>
+
+          <label style="display: grid; gap: 8px;">
+            <span style="font-family: 'IBM Plex Mono', monospace; font-size: 15px; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(236,238,237,0.58);">Email — required</span>
+            <input type="email" required="" name="email" placeholder="you@company.com" style="width: 100%; box-sizing: border-box; height: 46px; padding: 0 16px; background: rgba(236,238,237,0.035); border: 1px solid rgba(236,238,237,0.15); border-radius: 8px; color: #eceeed; font-family: 'IBM Plex Mono', monospace; font-size: 16px;" />
+          </label>
+
+          <label style="display: grid; gap: 8px;">
+            <span style="font-family: 'IBM Plex Mono', monospace; font-size: 15px; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(236,238,237,0.58);">Phone — optional</span>
+            <input type="tel" name="phone" placeholder="+1 000 000 0000" style="width: 100%; box-sizing: border-box; height: 46px; padding: 0 16px; background: rgba(236,238,237,0.035); border: 1px solid rgba(236,238,237,0.15); border-radius: 8px; color: #eceeed; font-family: 'IBM Plex Mono', monospace; font-size: 16px;" />
+          </label>
+
+          <div style="display: flex; align-items: center; gap: 16px; flex-wrap: wrap;">
+            <button type="submit" style="height: 46px; padding: 0 28px; background: transparent; border: 1px solid #3ee0b0; border-radius: 8px; color: #3ee0b0; font-family: 'IBM Plex Mono', monospace; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; cursor: pointer;" style-hover="background: rgba(62,224,176,0.1);" style-active="background: rgba(62,224,176,0.18);">Get my number</button>
+            <span style="font-size: 16px; color: rgba(236,238,237,0.6);">{{ formNote }}</span>
+          </div>
+        </form>
+      </div>
+      <footer style="display: flex; justify-content: space-between; gap: 18px; flex-wrap: wrap; font-family: 'IBM Plex Mono', monospace; font-size: 14px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(236,238,237,0.4); padding-top: clamp(14px, 2vh, 20px); border-top: 1px solid rgba(236,238,237,0.12);">
+        <span>Runs on your hardware</span>
+        <span>Nothing leaves your network</span>
+      </footer>
+    </section>
+
+  </div>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{}">
+class Component extends DCLogic {
+  state = { size: null, sent: false, active: 0 };
+  slides = new Array(7);
+  labels = ['Hero', 'Qualifier', 'Consequences', 'Mechanism', 'Economics', 'Delivery', 'Estimate'];
+
+  rootRef = (el) => { this.root = el; };
+  slidesRef = (el) => { this.slidesEl = el; };
+  setRef = (i) => (el) => { this.slides[i] = el; };
+
+  componentDidMount() {
+    if (!this.slidesEl) return;
+    this.io = new IntersectionObserver((entries) => {
+      entries.forEach((e) => {
+        if (e.isIntersecting && e.intersectionRatio > 0.5) {
+          const i = this.slides.indexOf(e.target);
+          if (i !== -1) this.setState({ active: i });
+        }
+      });
+    }, { root: this.slidesEl, threshold: [0.5] });
+    this.slides.forEach((s) => s && this.io.observe(s));
+  }
+
+  componentWillUnmount() { if (this.io) this.io.disconnect(); }
+
+  goTo(i) {
+    const el = this.slides[i];
+    if (el && this.slidesEl) {
+      this.slidesEl.scrollTo({ top: el.offsetTop, behavior: 'smooth' });
+      this.setState({ active: i });
+    }
+  }
+
+  opt(id) {
+    const on = this.state.size === id;
+    return "height:46px;border-radius:8px;font-family:'IBM Plex Mono',monospace;font-size:14px;cursor:pointer;transition:background 160ms ease,border-color 160ms ease;"
+      + (on
+        ? 'background:rgba(62,224,176,0.13);border:1px solid #3ee0b0;color:#3ee0b0;'
+        : 'background:transparent;border:1px solid rgba(236,238,237,0.16);color:rgba(236,238,237,0.7);');
+  }
+
+  dotStyle(i) {
+    const on = i === this.state.active;
+    return 'width:' + (on ? '14px' : '10px') + ';height:' + (on ? '14px' : '10px')
+      + ';border-radius:50%;border:1px solid ' + (on ? '#3ee0b0' : 'rgba(236,238,237,0.35)')
+      + ';background:' + (on ? '#3ee0b0' : 'transparent') + ';padding:0;cursor:pointer;transition:all 200ms ease;'
+      + (on ? 'outline:2px solid rgba(62,224,176,0.35);outline-offset:3px;' : '');
+  }
+
+  renderVals() {
+    const pick = (id) => () => this.setState({ size: id });
+    const dots = this.labels.map((label, i) => ({ label, style: this.dotStyle(i), go: () => this.goTo(i) }));
+    return {
+      rootRef: this.rootRef,
+      slidesRef: this.slidesRef,
+      goPrev: () => this.goTo(Math.max(0, this.state.active - 1)),
+      goNext: () => this.goTo(Math.min(this.labels.length - 1, this.state.active + 1)),
+      ref0: this.setRef(0), ref1: this.setRef(1), ref2: this.setRef(2), ref3: this.setRef(3),
+      ref4: this.setRef(4), ref5: this.setRef(5), ref6: this.setRef(6),
+      dots0go: (e) => { e.preventDefault(); this.goTo(6); },
+      dots,
+      styleA: this.opt('a'), styleB: this.opt('b'), styleC: this.opt('c'),
+      pickA: pick('a'), pickB: pick('b'), pickC: pick('c'),
+      onSubmit: (e) => { e.preventDefault(); this.setState({ sent: true }); },
+      formNote: this.state.sent ? 'Sent. Your number comes back by email.' : 'No call from a salesperson. Just the answer.',
+    };
+  }
+}
+
+</script>
+</body>
+</html>

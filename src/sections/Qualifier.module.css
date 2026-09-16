@@ -1,0 +1,24 @@
+.qualifier {
+  --slide-gap: clamp(24px, 4vh, 48px);
+  --slide-pad-bottom: clamp(24px, 5vh, 60px);
+}
+
+.headline {
+  margin: 0;
+  max-width: 24ch;
+  font-size: clamp(26px, 4.6vw, 46px);
+  line-height: 1.16;
+  letter-spacing: -0.03em;
+  font-weight: 500;
+}
+
+.aside {
+  margin: 0 0 0 auto;
+  max-width: 46ch;
+  padding-top: 16px;
+  border-top: 1px solid var(--accent-line-soft);
+  font-family: var(--font-mono);
+  font-size: 17px;
+  line-height: 1.65;
+  color: var(--text-65);
+}

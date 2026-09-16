@@ -1,0 +1,67 @@
+/* Design tokens — single source of truth for the landing page palette,
+   type and rhythm. Values transcribed from the design reference. */
+:root {
+  /* Surfaces */
+  --bg: #060708;
+  --bg-header: rgba(6, 7, 8, 0.82);
+
+  /* Text */
+  --text: #eceeed;
+  --text-84: rgba(236, 238, 237, 0.84);
+  --text-70: rgba(236, 238, 237, 0.7);
+  --text-66: rgba(236, 238, 237, 0.66);
+  --text-65: rgba(236, 238, 237, 0.65);
+  --text-62: rgba(236, 238, 237, 0.62);
+  --text-60: rgba(236, 238, 237, 0.6);
+  --text-58: rgba(236, 238, 237, 0.58);
+  --text-50: rgba(236, 238, 237, 0.5);
+  --text-42: rgba(236, 238, 237, 0.42);
+  --text-40: rgba(236, 238, 237, 0.4);
+
+  /* Accent */
+  --accent: #3ee0b0;
+  --accent-hover: #6fecc9;
+  --accent-line: rgba(62, 224, 176, 0.45);
+  --accent-line-soft: rgba(62, 224, 176, 0.4);
+  --accent-outline: rgba(62, 224, 176, 0.35);
+  --accent-tint-035: rgba(62, 224, 176, 0.035);
+  --accent-tint-05: rgba(62, 224, 176, 0.05);
+  --accent-tint-10: rgba(62, 224, 176, 0.1);
+  --accent-tint-13: rgba(62, 224, 176, 0.13);
+  --accent-tint-18: rgba(62, 224, 176, 0.18);
+  --accent-tint-20: rgba(62, 224, 176, 0.2);
+
+  /* Lines */
+  --border: rgba(236, 238, 237, 0.12);
+  --border-14: rgba(236, 238, 237, 0.14);
+  --border-15: rgba(236, 238, 237, 0.15);
+  --border-16: rgba(236, 238, 237, 0.16);
+  --border-18: rgba(236, 238, 237, 0.18);
+  --dot-border: rgba(236, 238, 237, 0.35);
+
+  /* Fills */
+  --field-bg: rgba(236, 238, 237, 0.035);
+
+  /* Type */
+  --font-sans: 'Inter Tight', system-ui, sans-serif;
+  --font-mono: 'IBM Plex Mono', monospace;
+
+  /* Radii */
+  --radius-sm: 8px;
+  --radius-md: 10px;
+
+  /* Rhythm — the header height feeds every slide's top padding, so it is
+     expressed once here and reused by the .slide rules. */
+  --page-inline: clamp(24px, 5vw, 72px);
+  --header-block-padding: clamp(14px, 2.2vh, 22px);
+  --header-height: calc(var(--header-block-padding) * 2 + 24px);
+  --slide-top-offset: calc(
+    var(--header-height) + 16px + env(safe-area-inset-top, 0px)
+  );
+  --slide-top-offset-kicker: calc(
+    var(--header-height) + 16px + 40px + env(safe-area-inset-top, 0px)
+  );
+
+  /* Nav rail gutter reserved on narrow screens so copy never runs under the dots. */
+  --rail-gutter: clamp(56px, 14vw, 76px);
+}

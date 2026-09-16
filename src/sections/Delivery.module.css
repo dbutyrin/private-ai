@@ -1,0 +1,46 @@
+.delivery {
+  --slide-gap: clamp(16px, 2.6vh, 30px);
+  --slide-pad-bottom: clamp(24px, 5vh, 60px);
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  max-height: 460px;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 50px minmax(0, 1fr) minmax(0, 1.1fr);
+  gap: 0 clamp(16px, 2.4vw, 48px);
+  align-items: center;
+  flex: 1;
+  padding: clamp(10px, 1.6vh, 18px) 0;
+  border-top: 1px solid var(--border);
+}
+
+.row:last-child {
+  border-bottom: 1px solid var(--border);
+}
+
+.index {
+  font-family: var(--font-mono);
+  font-size: 14px;
+  color: var(--accent);
+}
+
+.title {
+  margin: 0;
+  font-size: clamp(17px, 2.2vw, 21px);
+  line-height: 1.22;
+  letter-spacing: -0.02em;
+  font-weight: 500;
+}
+
+.description {
+  margin: 0;
+  font-size: 17px;
+  line-height: 1.45;
+  color: var(--text-58);
+}

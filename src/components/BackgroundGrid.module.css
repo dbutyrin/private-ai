@@ -1,0 +1,27 @@
+/* Decorative full-viewport rule lines, faded out at top and bottom. */
+.grid {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-image: linear-gradient(
+    to right,
+    rgba(236, 238, 237, 0.05) 1px,
+    transparent 1px
+  );
+  background-size: 25% 100%;
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    transparent,
+    #000 18%,
+    #000 72%,
+    transparent
+  );
+  mask-image: linear-gradient(
+    to bottom,
+    transparent,
+    #000 18%,
+    #000 72%,
+    transparent
+  );
+}
