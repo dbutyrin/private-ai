@@ -70,6 +70,29 @@ honours `prefers-reduced-motion`.
 - **≤720px** — slides reserve a right-hand gutter so copy never runs under
   the nav rail, the header wordmark centres, and the hero re-flows.
 
+## Deploy (Netlify)
+
+`netlify.toml` holds the whole build config — build command, publish
+directory, Node version and cache headers — so nothing needs setting in the
+Netlify UI.
+
+Connect the repository once (Netlify → *Add new site* → *Import an existing
+project* → GitHub → `dbutyrin/private-ai`) and accept the detected settings;
+every push to the production branch then deploys, and pull requests get
+deploy previews.
+
+For a one-off deploy without connecting the repo:
+
+```bash
+npm i -g netlify-cli
+netlify deploy --build            # draft URL
+netlify deploy --build --prod     # production
+```
+
+There is no SPA catch-all redirect on purpose: the page has no client-side
+router, so unknown paths should keep returning a real 404 rather than
+rendering the landing page.
+
 ## Known gap
 
 The estimate form has **no backend**. Submitting sets local state and swaps
