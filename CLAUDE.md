@@ -97,8 +97,12 @@ Plain CSS. No UI kit, no CSS-in-JS, no Tailwind — don't introduce one.
 
 - **≥1001px** — every slide is exactly `100svh` and scroll-snaps.
 - **≤1000px** — slides become `height: auto; min-height: 100svh` and flow.
-  Economics and Consequences are exceptions: they stay locked to one screen
-  and compress instead of growing.
+  Economics and Consequences are exceptions: **when the viewport is also
+  ≥560px tall**, they stay locked to one screen and compress instead of
+  growing. Below that height — every iPhone in landscape lands at
+  350–430px tall regardless of model — locking them clips or overlaps their
+  content, so they fall through to the flowing rule instead. Don't drop the
+  `min-height` half of that query.
 - **≤720px** — slides reserve `--rail-gutter` on the right so copy never
   runs under the dot rail; the header wordmark centres; the hero reflows.
 

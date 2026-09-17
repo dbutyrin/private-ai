@@ -122,9 +122,15 @@ a:focus-visible {
   .fit-row {
     flex: none;
   }
+}
 
-  /* …except these two, which stay locked to one screen and compress their
-     contents instead of growing. */
+/* …except these two, which stay locked to one screen and compress their
+   contents instead of growing — but only when there is enough height to
+   compress into. Below ~560px (any landscape phone: iPhone SE up to the
+   15 Pro Max all land at 350–430px here), locking them to 100svh clips or
+   overlaps their content, so they fall through to the flowing rule above
+   instead. */
+@media (max-width: 1000px) and (min-height: 560px) {
   .slide[data-screen-label='Economics'],
   .slide[data-screen-label='Consequences'] {
     height: 100svh;
