@@ -97,8 +97,11 @@ Plain CSS. No UI kit, no CSS-in-JS, no Tailwind — don't introduce one.
 
 - **≥1001px** — every slide is exactly `100svh` and scroll-snaps.
 - **≤1000px** — slides become `height: auto; min-height: 100svh` and flow.
-  Economics and Consequences are exceptions: they stay locked to one screen
-  and compress instead of growing.
+  Consequences is the exception: it stays locked to one screen and
+  compresses instead of growing. Economics used to be locked here as well,
+  but that clipped its content on a real iPhone (undetectable in Chromium's
+  viewport emulation) — don't relock it without a real-device check, not
+  just a screenshot at the same CSS pixel size.
 - **≤720px** — slides reserve `--rail-gutter` on the right so copy never
   runs under the dot rail; the header wordmark centres; the hero reflows.
 

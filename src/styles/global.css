@@ -123,23 +123,16 @@ a:focus-visible {
     flex: none;
   }
 
-  /* …except these two, which stay locked to one screen and compress their
-     contents instead of growing. */
-  .slide[data-screen-label='Economics'],
+  /* …except this one, which stays locked to one screen and compresses its
+     contents instead of growing. Economics used to be locked here too, but
+     that mechanism clips silently whenever real content needs more room
+     than the assumed viewport height gives it (confirmed on a real iPhone,
+     not reproducible in Chromium's viewport emulation) — so it now flows
+     like every other section instead. */
   .slide[data-screen-label='Consequences'] {
     height: 100svh;
     min-height: 0;
     overflow: hidden;
-  }
-
-  .slide[data-screen-label='Economics'] .fit-box {
-    flex: 1 1 auto;
-    min-height: 0;
-    max-height: none;
-    overflow: hidden;
-  }
-
-  .slide[data-screen-label='Consequences'] {
     --slide-gap: clamp(8px, 1.4vh, 16px);
   }
 }
