@@ -28,6 +28,14 @@ Netlify builds a deploy preview per PR (the default for Git-connected
 sites), so review a visual change on the preview URL, not only on a local
 screenshot.
 
+**Content and style changes go in separate PRs, even when requested
+together.** Copy (headline wording, body text, labels, numbers) and layout
+or visual changes (spacing, size, colour, breakpoints) review differently
+and can land independently — don't bundle them because they touch the same
+section. If a batch of feedback mixes both, split it into a `content/…`
+branch and one or more `design/…` branches rather than one PR that does
+everything.
+
 ## Design source of truth
 
 - `design/HANDOFF.md` — the written spec.
