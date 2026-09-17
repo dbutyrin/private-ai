@@ -39,6 +39,9 @@
 .ctaCell {
   display: flex;
   justify-content: flex-end;
+  /* Row is bottom-aligned with the (taller) paragraph already, so this is
+     the only way to nudge the button lower without changing row height. */
+  transform: translateY(12px);
 }
 
 .cta {
