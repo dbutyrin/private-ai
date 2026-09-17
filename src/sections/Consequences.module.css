@@ -82,22 +82,26 @@
   }
 
   .headline {
-    font-size: clamp(20px, 3.3vw, 30px);
+    font-size: clamp(26px, 5vw, 36px);
+  }
+
+  .index {
+    font-size: 15px;
   }
 
   .itemText {
-    font-size: 15px;
-    line-height: 1.28;
-    margin-top: 5px;
+    font-size: 18px;
+    line-height: 1.33;
+    margin-top: 6px;
   }
 
   .aside {
-    font-size: 16px;
-    line-height: 1.4;
+    font-size: 19px;
+    line-height: 1.48;
   }
 
   .closing {
-    font-size: clamp(16px, 2.6vw, 24px);
-    line-height: 1.16;
+    font-size: clamp(20px, 3.6vw, 28px);
+    line-height: 1.18;
   }
 }
