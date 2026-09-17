@@ -14,7 +14,7 @@ export function Hero({ onEstimateClick, ref }: HeroProps) {
         <span>
           Private AI used to be a large-enterprise privilege.
           <br />
-          &nbsp;<span className={styles.turn}>It isn't anymore.</span>
+          <span className={styles.turn}>It isn't anymore.</span>
         </span>
       </h1>
 
