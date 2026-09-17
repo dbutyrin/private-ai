@@ -32,7 +32,7 @@
   padding: 0;
   margin: 0;
   display: grid;
-  gap: 10px;
+  gap: 16px;
 }
 
 .legend,
@@ -73,7 +73,7 @@
 
 .field {
   display: grid;
-  gap: 8px;
+  gap: 12px;
 }
 
 .input {
