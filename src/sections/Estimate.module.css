@@ -28,11 +28,14 @@
 }
 
 .fieldset {
+  /* Plain block flow, not grid: a <legend> inside a grid fieldset is a
+     known cross-browser gap — some browsers don't give it a real grid
+     track, so `gap` never applies and it overlaps the next row. Spacing
+     below comes from the legend's own margin-bottom instead, which every
+     browser respects regardless of how it boxes the legend. */
   border: 0;
   padding: 0;
   margin: 0;
-  display: grid;
-  gap: 16px;
 }
 
 .legend,
@@ -43,6 +46,11 @@
   letter-spacing: 0.16em;
   text-transform: uppercase;
   color: var(--text-58);
+}
+
+.legend {
+  display: block;
+  margin: 0 0 16px;
 }
 
 .sizeOptions {
