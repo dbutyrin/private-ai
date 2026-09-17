@@ -5,18 +5,15 @@ import styles from './Delivery.module.css'
 const STEPS = [
   {
     title: 'Connected to your documents from day one',
-    description:
-      'It answers on your contracts, your policies and your files — not on the open internet.',
+    description: 'Works directly with your data, not exposing it to the Internet.',
   },
   {
     title: 'We pick and configure the model remotely',
-    description:
-      'Against the work your team actually does. Nobody on your side needs to learn how it works.',
+    description: 'Nobody on your side needs to learn how it works. It just works.',
   },
   {
-    title: 'Three to four days from box to first real answer',
-    description:
-      'Measured from the hardware arriving, not from the contract being signed.',
+    title: 'Only three days to first real answers',
+    description: 'Fast setup and connection to your corporate data.',
   },
   {
     title: 'We move you onto better models as they ship',
