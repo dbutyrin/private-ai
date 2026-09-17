@@ -24,7 +24,10 @@
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: clamp(18px, 3vw, 48px);
   align-items: start;
-  padding-top: clamp(14px, 2vh, 20px);
+  /* Top-aligning the button (below) puts it right under this divider —
+     a tight gap that barely registered for plain text now reads as the
+     button crowding the rule. Give it real breathing room. */
+  padding-top: clamp(24px, 4vh, 40px);
   border-top: 1px solid var(--border);
 }
 
