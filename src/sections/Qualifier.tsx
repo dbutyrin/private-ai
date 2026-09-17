@@ -11,7 +11,7 @@ export function Qualifier({ ref }: { ref?: Ref<HTMLElement> }) {
       ref={ref}
     >
       <h2 className={styles.headline}>
-        Your team already pasted company data into public ChatGPT today. The
+        Your team already pasted company data into a public LLM today. The
         question isn't whether it happened. The question is what exactly went in.
       </h2>
 
