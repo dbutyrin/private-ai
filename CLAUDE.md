@@ -5,6 +5,29 @@ scroll-snapping sections. Built from a Claude Design handoff — **fidelity to
 that design is the point of this repo**, so treat layout values as spec, not
 as taste.
 
+## Workflow
+
+**Every change goes through its own branch and a pull request.** Nothing is
+committed or pushed directly to `main` — not a one-line colour fix, not a
+typo. `main` is the production branch: Netlify deploys every push to it.
+
+```bash
+git checkout main && git pull
+git checkout -b design/economics-figure-size
+# …make the change
+npm run build                                   # must pass before pushing
+git push -u origin design/economics-figure-size
+# then open a PR against main
+```
+
+Branch names are short and kebab-case, prefixed by the kind of change:
+`design/` for visual fidelity work, `feat/` for new behaviour, `fix/` for
+bugs, `docs/` for documentation, `chore/` for tooling and config.
+
+Netlify builds a deploy preview per PR (the default for Git-connected
+sites), so review a visual change on the preview URL, not only on a local
+screenshot.
+
 ## Design source of truth
 
 - `design/HANDOFF.md` — the written spec.
