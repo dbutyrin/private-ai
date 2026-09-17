@@ -79,17 +79,11 @@
   color: var(--text-58);
 }
 
-/* Below 1000px the section stays one screen tall and the cells compress
-   into a single column rather than the page growing. */
+/* Below 1000px the section flows instead of staying locked to one screen —
+   the cells stack into a single column and size themselves by content. */
 @media (max-width: 1000px) {
   .grid {
     grid-template-columns: 1fr;
-    grid-auto-rows: minmax(0, 1fr);
-    height: 100%;
-  }
-
-  .figure {
-    flex: 0 0 44%;
   }
 
   .figure,
